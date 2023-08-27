@@ -16,6 +16,10 @@ jobs:
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
+      - name: some additional command
+        run: |
+          eval `ssh-agent -s`
+          ssh-add /home/runner/.ssh/id_rsa
       - name: Validate composer
         run: composer validate
       - name: Install dependency
