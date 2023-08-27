@@ -12,7 +12,7 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v3
       - name: Add ssh key
-        uses: wshimataro/ssh-key-action@v2
+        uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           nown_hosts: ${{ secrets.KNOWN_HOSTS }}
