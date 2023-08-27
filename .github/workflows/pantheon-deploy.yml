@@ -16,6 +16,8 @@ jobs:
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
+      - name: show known host
+        run: echo /home/runner/.ssh/known_hosts
       - name: Validate composer
         run: composer validate
       - name: Install dependency
