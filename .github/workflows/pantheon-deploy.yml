@@ -23,8 +23,8 @@ jobs:
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
-      - name: Test known host
-        run: ssh -T ${{ secrets.KNOWN_HOSTS }}
+      # - name: Test known host
+      #   run: ssh -T ${{ secrets.KNOWN_HOSTS }}
       - name: Validate composer
         run: composer validate
       - name: Install dependency
