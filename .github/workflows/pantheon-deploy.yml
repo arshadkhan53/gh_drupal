@@ -28,7 +28,9 @@ jobs:
                 HostName ${{ secrets.KNOWN_HOSTS }}
                 IdentityFile ~/.ssh/id_rsa
       - name: Test known host
-        run: ssh -T ${{ secrets.KNOWN_HOSTS }}
+        run: |
+          ls ~/.ssh
+          ssh -T ${{ secrets.KNOWN_HOSTS }}
       - name: Validate composer
         run: composer validate
       - name: Install dependency
