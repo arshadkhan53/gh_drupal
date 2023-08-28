@@ -11,18 +11,20 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v3
+      - name: some additional command
+        run: |
+          ssh-keygen -R github.com
+         # eval `ssh-agent -s`
+         # ssh-add /home/runner/.ssh/id_rsa
+         # ssh-keyscan -H ${{ secrets.KNOWN_HOSTS }} >> ~/.ssh/known_hosts
+
       - name: Add ssh key
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
-      - name: some additional command
-        run: |
-          ssh-keygen -R github.com
-          eval `ssh-agent -s`
-          ssh-add /home/runner/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.KNOWN_HOSTS }} >> ~/.ssh/known_hosts
-          ssh -T ${{ secrets.KNOWN_HOSTS }}
+      - name: Test known host
+        run: ssh -T ${{ secrets.KNOWN_HOSTS }}
       - name: Validate composer
         run: composer validate
       - name: Install dependency
