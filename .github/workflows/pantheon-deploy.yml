@@ -22,7 +22,11 @@ jobs:
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          known_hosts: unnecessary
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          config: |
+              Host ${{ secrets.KNOWN_HOSTS }}
+                HostName ${{ secrets.KNOWN_HOSTS }}
+                IdentityFile ~/.ssh/id_rsa
       - name: Test known host
         run: ssh -T ${{ secrets.KNOWN_HOSTS }}
       - name: Validate composer
