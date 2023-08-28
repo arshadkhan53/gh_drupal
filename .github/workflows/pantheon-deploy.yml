@@ -18,9 +18,10 @@ jobs:
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
       - name: some additional command
         run: |
+          pwd
           eval `ssh-agent -s`
           ssh-add /home/runner/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.KNOWN_HOSTS }} >> ~/.ssh/known_hosts
+          ssh-keyscan -H ${{ secrets.KNOWN_HOSTS }} >> /home/runner/.ssh/known_hosts
       - name: Validate composer
         run: composer validate
       - name: Install dependency
