@@ -33,12 +33,12 @@ jobs:
         run: composer validate
       - name: Install dependency
         run: composer install
+      - name: show branch name
+        run : git branch
       - name: Deploy the code
         run: |
-          git fetch --unshallow ${{ secrets.GIT_REPO_URL }}
-          git remote remove origin
-          git init
-          git remote add origin ${{ secrets.GIT_REPO_URL }}
-          git push -f origin master
+          git remote add pantheon ${{ secrets.GIT_REPO_URL }}
+          git fetch --unshallow pantheon
+          git push -f pantheon master
       - name: Deployed status
         run: echo "Deployed ...."
