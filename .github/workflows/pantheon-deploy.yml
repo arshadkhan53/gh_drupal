@@ -25,10 +25,10 @@ jobs:
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
           config: ${{ secrets.SSH_CONFIG }}
 
-      - name: Test known host
-        run: |
-          ls ~/.ssh
-          ssh -T ${{ secrets.KNOWN_HOSTS }}
+      # - name: Test known host
+      #   run: |
+      #     ls ~/.ssh
+      #     ssh -T ${{ secrets.KNOWN_HOSTS }}
       - name: Validate composer
         run: composer validate
       - name: Install dependency
