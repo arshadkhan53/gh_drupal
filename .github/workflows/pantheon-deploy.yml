@@ -23,10 +23,8 @@ jobs:
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
-          config: |
-              Host ${{ secrets.KNOWN_HOSTS }}
-                HostName ${{ secrets.KNOWN_HOSTS }}
-                IdentityFile ~/.ssh/id_rsa
+          config: ${{ secrets.SSH_CONFIG }}
+
       - name: Test known host
         run: |
           ls ~/.ssh
