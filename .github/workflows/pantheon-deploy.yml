@@ -35,8 +35,10 @@ jobs:
         run: composer install
       - name: Deploy the code
         run: |
-          git remote add pantheon ${{ secrets.GIT_REPO_URL }}
-          git fetch --unshallow pantheon
-          git push -f pantheon master
+          git fetch --unshallow ${{ secrets.GIT_REPO_URL }}
+          git remote remove origin
+          git init
+          git remote add origin ${{ secrets.GIT_REPO_URL }}
+          git push -f origin master
       - name: Deployed status
         run: echo "Deployed ...."
