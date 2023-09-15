@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2d3f8432ea67361c542657b450488365",
+    "content-hash": "99b30f38eced8e17fe278d19da45fd23",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1687,6 +1687,50 @@
                     "url": "https://paypal.me/saschaeggi"
                 }
             ]
+        },
+        {
+            "name": "drupal/jsonapi_role_access",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/jsonapi_role_access.git",
+                "reference": "1.1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/jsonapi_role_access-1.1.1.zip",
+                "reference": "1.1.1",
+                "shasum": "c7229778011099724a3746b0ee69112c754f53f7"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.1.1",
+                    "datestamp": "1684235676",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "arshadkhan35",
+                    "homepage": "https://www.drupal.org/user/3341832"
+                }
+            ],
+            "description": "Provides feature to give or restrict access to JSON:API resources.",
+            "homepage": "https://www.drupal.org/project/jsonapi_role_access",
+            "support": {
+                "source": "https://git.drupalcode.org/project/jsonapi_role_access"
+            }
         },
         {
             "name": "drush/drush",
