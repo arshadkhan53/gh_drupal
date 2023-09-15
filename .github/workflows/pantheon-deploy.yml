@@ -13,33 +13,24 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      # - name: some additional command
-      #   run: |
-      #     ssh-keygen -R github.com
-         # eval `ssh-agent -s`
-         # ssh-add /home/runner/.ssh/id_rsa
-         # ssh-keyscan -H ${{ secrets.KNOWN_HOSTS }} >> ~/.ssh/known_hosts
-
+# Use ssh-keygen to generate ssh key
+# Convert the ssh key to PEM format using ssh-keygen -p -m PEM -f [NAME_OF_SSH_KEY_PLACEHOLDER]
+# Add private key to repository secret
+# Add publick key to the server where you want to deploy, in this case pantheon
+# Ref https://medium.com/swlh/pantheon-and-github-actions-automated-deployments-via-github-actions-c245aa954797
       - name: Add ssh key
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
           config: ${{ secrets.SSH_CONFIG }}
-
-      # - name: Test known host
-      #   run: |
-      #     ls ~/.ssh
-      #     ssh -T ${{ secrets.KNOWN_HOSTS }}
       - name: Validate composer
         run: composer validate
       - name: Install dependency
         run: composer install
-      - name: show branch name
-        run : git branch
       - name: Deploy the code
         run: |
           git remote add pantheon ${{ secrets.GIT_REPO_URL }}
-           git push pantheon HEAD:master
+          git push pantheon HEAD:master
       - name: Deployed status
         run: echo "Deployed ...."
