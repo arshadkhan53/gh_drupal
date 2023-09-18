@@ -30,7 +30,7 @@ jobs:
           config: ${{ secrets.SSH_CONFIG }}
       - name: Validate composer
         run: composer validate
-
+# Add cache for composer dependecnies.
       - name: Get Composer Cache Directory
         id: composer-cache
         run: |
