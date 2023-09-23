@@ -29,7 +29,7 @@ include __DIR__ . "/settings.pantheon.php";
      'database' => 'testdb',
      'username' => 'root',
      'password' => 'testrootpass',
-     'host' => 'mysql',
+     'host' => '127.0.0.1',
      'port' => '3306',
      'driver' => 'mysql',
      'prefix' => '',

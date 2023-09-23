@@ -65,6 +65,10 @@ jobs:
         with:
           php-version: '8.2'
           tools: composer:v2
+      - name: Install the drupal site
+        run: |
+          drush si
+          drush cr
       - name: Deploy the code
         run: |
           git remote add pantheon ${{ secrets.GIT_REPO_URL }}
