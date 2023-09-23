@@ -25,6 +25,17 @@ include __DIR__ . "/settings.pantheon.php";
  */
 // $settings['skip_permissions_hardening'] = TRUE;
 
+ $databases['default']['default'] = [
+     'database' => 'testdb',
+     'username' => 'root',
+     'password' => 'testrootpass',
+     'host' => 'mysql',
+     'port' => '3306',
+     'driver' => 'mysql',
+     'prefix' => '',
+     'collation' => 'utf8mb4_general_ci',
+   ];
+
 /**
  * If there is a local settings file, then include it
  */
