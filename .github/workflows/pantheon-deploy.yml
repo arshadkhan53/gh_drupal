@@ -44,7 +44,7 @@ jobs:
       - name: Validate composer
         run: composer validate
       - name: Verify testdb DB exists
-        run: mysql --host mysql --port 3306 -uroot -ptestrootpass -e "SHOW DATABASES LIKE 'testdb'"
+        run: mysql --host 127.0.0.1 --port 3306 -uroot -ptestrootpass -e "SHOW DATABASES LIKE 'testdb'"
 # Add cache for composer dependecnies.
       - name: Get Composer Cache Directory
         id: composer-cache
