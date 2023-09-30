@@ -78,7 +78,6 @@ jobs:
           sed -i 's|name="BROWSERTEST_OUTPUT_DIRECTORY" value=""|name="BROWSERTEST_OUTPUT_DIRECTORY" value="./web/sites"|g' ./web/core/phpunit.xml
       - name: Run unit test
         run: |
-          ping http://127.0.0.1
           ./vendor/bin/phpunit -c ./web/core --testsuite=unit
       - name: Deploy the code
         run: |
