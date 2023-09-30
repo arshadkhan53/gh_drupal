@@ -69,7 +69,8 @@ jobs:
         run: |
           ./vendor/bin/drush --version
           ./vendor/bin/drush si
-          ./vendor/bin/drush status
+          ./vendor/bin/drush en -y gh_drupal_test
+
       - name: Configuration for unit test
         run: |
           cp ./web/core/phpunit.xml.dist ./web/core/phpunit.xml
@@ -78,7 +79,7 @@ jobs:
           sed -i 's|name="BROWSERTEST_OUTPUT_DIRECTORY" value=""|name="BROWSERTEST_OUTPUT_DIRECTORY" value="./web/sites"|g' ./web/core/phpunit.xml
       - name: Run unit test
         run: |
-          ./vendor/bin/phpunit -c ./web/core --testsuite=unit
+          ./vendor/bin/phpunit -c ./web/modules/custom --testsuite=unit
       - name: Deploy the code
         run: |
           git remote add pantheon ${{ secrets.GIT_REPO_URL }}
