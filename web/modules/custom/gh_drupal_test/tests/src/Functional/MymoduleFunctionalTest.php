@@ -28,7 +28,7 @@ class MymoduleFunctionalTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     // Generate a user with the necessary permissions.
@@ -48,7 +48,7 @@ class MymoduleFunctionalTest extends BrowserTestBase {
     $this->drupalGet('path-provided-by-mymodule');
 
     // Confirm that the page loads successfully.
-    $this->assertResponse(200);
+    $this->assertSession()->statusCodeEquals(200);
 
     // Implement additional assertions as needed.
   }
