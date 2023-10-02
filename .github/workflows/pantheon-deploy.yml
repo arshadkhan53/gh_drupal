@@ -79,7 +79,7 @@ jobs:
           sed -i 's|name="BROWSERTEST_OUTPUT_DIRECTORY" value=""|name="BROWSERTEST_OUTPUT_DIRECTORY" value="./web/sites"|g' ./web/core/phpunit.xml
       - name: Run unit test
         run: |
-          ./vendor/bin/phpunit -c ./web/core ./web/modules/custom --testsuite=unit
+          ./vendor/bin/phpunit -c ./web/core ./web/modules/custom
       - name: Deploy the code
         run: |
           git remote add pantheon ${{ secrets.GIT_REPO_URL }}
