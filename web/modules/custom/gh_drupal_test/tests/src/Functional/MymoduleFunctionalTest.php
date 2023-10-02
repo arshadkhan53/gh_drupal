@@ -16,7 +16,8 @@ class MymoduleFunctionalTest extends BrowserTestBase {
    *
    * @var array
    */
-  protected static $modules = ['mymodule'];
+  protected static $modules = ['gh_drupal_test'];
+  protected $defaultTheme = 'olivero';
 
   /**
    * A user account with the required permissions for testing.
@@ -37,9 +38,9 @@ class MymoduleFunctionalTest extends BrowserTestBase {
     ]);
   }
 
-  /**
-   * Assess the functionality of mymodule.
-   */
+    /**
+     * @doesNotPerformAssertions
+     */
   public function testMymoduleFunctionality() {
     $this->expectNotToPerformAssertions();
     // Log in as the webUser.
