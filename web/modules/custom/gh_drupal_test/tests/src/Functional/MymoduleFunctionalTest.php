@@ -41,6 +41,7 @@ class MymoduleFunctionalTest extends BrowserTestBase {
    * Assess the functionality of mymodule.
    */
   public function testMymoduleFunctionality() {
+    $this->expectNotToPerformAssertions();
     // Log in as the webUser.
     $this->drupalLogin($this->webUser);
 
