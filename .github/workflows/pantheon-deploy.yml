@@ -67,6 +67,7 @@ jobs:
           tools: composer:v2
       - name: Install the drupal site
         run: |
+          apache2ctl -S
           ./vendor/bin/drush --version
           ./vendor/bin/drush si
           ./vendor/bin/drush en -y gh_drupal_test
